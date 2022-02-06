@@ -1,12 +1,12 @@
 define(function(require, exports, module) {
-
+    var Shape = require('./shape')
     return require('../core/class').createClass('Image', {
 
-        base: require('./shape'),
+        base: Shape,
 
         constructor: function(url, width, height, x, y) {
 
-            this.callBase('image');
+            this.callBase2(Shape, '', ['image']);
             this.url = url;
             this.width = width || 0;
             this.height = height || 0;

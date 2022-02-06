@@ -4,13 +4,13 @@
 
 define(function(require, exports, module) {
 
-
+    var Container = require('./container')
     return require('../core/class').createClass('PointContainer', {
 
-        base: require('./container'),
+        base: Container,
 
         constructor: function() {
-            this.callBase();
+            this.callBase2(Container, 'constructor', []);
         },
 
         addPoint: function(point, pos) {

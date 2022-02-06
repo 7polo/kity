@@ -5,16 +5,17 @@
 define(function(require, exports, module) {
 
     var Utils = require('../core/utils');
+    var Path =  require('./path')
 
     return require('../core/class').createClass('Poly', {
 
-        base: require('./path'),
+        base: Path,
 
         mixins: [require('./pointcontainer')],
 
         constructor: function(points, closeable) {
 
-            this.callBase();
+            this.callBase2(Path, 'constructor', []);
 
             //是否可闭合
             this.closeable = !!closeable;

@@ -13,7 +13,7 @@ define(function(require, exports, module) {
 
         constructor: function(type, input) {
 
-            this.callBase(Effect.NAME_COLOR_MATRIX);
+            this.callBase2(Effect, 'constructor', [Effect.NAME_COLOR_MATRIX]);
 
             this.set('type', Utils.getValue(type, ColorMatrixEffect.TYPE_MATRIX));
 

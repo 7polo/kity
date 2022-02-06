@@ -1,11 +1,11 @@
 define(function(require, exports, module) {
-
+    var Path = require('./path')
     return require('../core/class').createClass('Line', {
 
-        base: require('./path'),
+        base: Path,
 
         constructor: function(x1, y1, x2, y2) {
-            this.callBase();
+            this.callBase2(Path, 'constructor', []);
 
             this.point1 = {
                 x: x1 || 0,

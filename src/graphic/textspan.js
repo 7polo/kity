@@ -5,7 +5,7 @@ define(function(require, exports, module) {
         base: TextContent,
         mixins: [Styled],
         constructor: function(content) {
-            this.callBase('tspan');
+            this.callBase2(TextContent, 'constructor', ['tspan']);
             this.setContent(content);
         }
     });

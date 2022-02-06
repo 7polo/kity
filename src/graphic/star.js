@@ -12,11 +12,11 @@ define(function(require, exports, module) {
     };
 
     var Point = require('./point');
-
+    var Path = require('./path')
     return require('../core/class').createClass('Star', {
-        base: require('./path'),
+        base: Path,
         constructor: function(vertex, radius, shrink, offset, angleOffset) {
-            this.callBase();
+            this.callBase2(Path, 'constructor', []);
             this.vertex = vertex || 3;
             this.radius = radius || 0;
             this.shrink = shrink;

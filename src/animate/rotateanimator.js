@@ -24,14 +24,14 @@ define(function(require) {
          * @param  {Number} deg 要旋转的角度
          */
         constructor: function(deg) {
-            this.callBase({
+            this.callBase2(Animator, 'constructor', [{
                 beginValue: 0,
                 finishValue: deg,
                 setter: function(target, value, timeline) {
                     var delta = timeline.getDelta();
                     target.rotate(delta, ax, ay);
                 }
-            });
+            }]);
         }
     });
 

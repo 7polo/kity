@@ -6,7 +6,7 @@ define(function(require, exports, module) {
 
         constructor: function(nodeType) {
             // call shape constructor
-            this.callBase(nodeType);
+            this.callBase2(Shape, 'constructor', [nodeType]);
             this.shapeNode = this.shapeNode || this.node;
             this.shapeNode.setAttribute('text-rendering', 'geometricPrecision');
         },

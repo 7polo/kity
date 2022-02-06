@@ -4,6 +4,7 @@ define(function(require, exports, module) {
         Utils = require('../core/utils'),
         Point = require('./point'),
         Box = require('./box');
+    var Path = require('./path')
 
     Utils.extend(RectUtils, {
 
@@ -26,7 +27,7 @@ define(function(require, exports, module) {
      */
     var Rect = require('../core/class').createClass('Rect', {
 
-        base: require('./path'),
+        base: Path,
 
         /**
          * @constructor
@@ -40,7 +41,7 @@ define(function(require, exports, module) {
          */
         constructor: function(width, height, x, y, radius) {
 
-            this.callBase();
+            this.callBase2(Path, 'constructor', []);
 
             this.x = x || 0;
             this.y = y || 0;

@@ -18,96 +18,14 @@ define(function(require, exports) {
 
     Class.__KityClassName = 'Class';
 
-    /**
-     * @method base()
-     * @for kity.Class
-     * @protected
-     * @grammar base(name, args...) => {any}
-     * @description 调用父类指定名称的函数
-     * @param {string} name 函数的名称
-     * @param {parameter} args... 传递给父类函数的参数
-     *
-     * @example
-     *
-     * ```js
-     * var Person = kity.createClass('Person', {
-     *     toString: function() {
-     *         return 'I am a person';
-     *     }
-     * });
-     *
-     * var Male = kity.createClass('Male', {
-     *     base: Person,
-     *
-     *     toString: function() {
-     *         return 'I am a man';
-     *     },
-     *
-     *     speak: function() {
-     *         return this.base('toString') + ',' + this.toString();
-     *     }
-     * })
-     * ```
-     */
-    Class.prototype.base = function(name) {
-        var caller = arguments.callee.caller;
-        var method = caller.__KityMethodClass.__KityBaseClass.prototype[name];
-        return method.apply(this, Array.prototype.slice.call(arguments, 1));
+    Class.prototype.callBase2 = function(clz, methodName, params) {
+        var parent = clz.Class || clz;
+        var method2 = parent.prototype[methodName];
+        return method2.apply(this, params);
     };
 
-    /**
-     * @method callBase()
-     * @for kity.Class
-     * @protected
-     * @grammar callBase(args...) => {any}
-     * @description 调用父类同名函数
-     * @param {parameter} args... 传递到父类同名函数的参数
-     *
-     * @example
-     *
-     * ```js
-     * var Animal = kity.createClass('Animal', {
-     *     constructor: function(name) {
-     *         this.name = name;
-     *     },
-     *     toString: function() {
-     *         return 'I am an animal name ' + this.name;
-     *     }
-     * });
-     *
-     * var Dog = kity.createClass('Dog', {
-     *     constructor: function(name) {
-     *         this.callBase(name);
-     *     },
-     *     toString: function() {
-     *         return this.callBase() + ', a dog';
-     *     }
-     * });
-     *
-     * var dog = new Dog('Dummy');
-     * console.log(dog.toString()); // "I am an animal name Dummy, a dog";
-     * ```
-     */
-    Class.prototype.callBase = function() {
-        var caller = arguments.callee.caller;
-        var method = caller.__KityMethodClass.__KityBaseClass.prototype[caller.__KityMethodName];
-        return method.apply(this, arguments);
-    };
-
-    Class.prototype.mixin = function(name) {
-        var caller = arguments.callee.caller;
-        var mixins = caller.__KityMethodClass.__KityMixins;
-        if (!mixins) {
-            return this;
-        }
-        var method = mixins[name];
-        return method.apply(this, Array.prototype.slice.call(arguments, 1));
-    };
-
-    Class.prototype.callMixin = function() {
-        var caller = arguments.callee.caller;
-        var methodName = caller.__KityMethodName;
-        var mixins = caller.__KityMethodClass.__KityMixins;
+    Class.prototype.callMixin2 = function(clz, methodName, params) {
+        var mixins = clz.__KityMixins;
         if (!mixins) {
             return this;
         }
@@ -188,7 +106,7 @@ define(function(require, exports) {
     // 该检查是弱检查，假如调用的代码被注释了，同样能检查成功（这个特性可用于知道建议调用，但是出于某些原因不想调用的情况）
     function checkBaseConstructorCall(targetClass, classname) {
         var code = targetClass.toString();
-        if (!/this\.callBase/.test(code)) {
+        if (!/this\.callBase2/.test(code)) {
             throw new Error(classname + ' : 类构造函数没有调用父类的构造函数！为了安全，请调用父类的构造函数');
         }
     }
@@ -257,8 +175,10 @@ define(function(require, exports) {
                 methodName.indexOf('__Kity') &&
                 methodName != 'constructor') {
                 var method = BaseClass.prototype[methodName] = extension[methodName];
-                method.__KityMethodClass = BaseClass;
-                method.__KityMethodName = methodName;
+                if (typeof method !== 'boolean') {
+                    method.__KityMethodClass = BaseClass;
+                    method.__KityMethodName = methodName;
+                }
             }
         }
         return BaseClass;
@@ -354,9 +274,10 @@ define(function(require, exports) {
                 checkBaseConstructorCall(constructor, classname);
             }
         } else {
+            // console.log("no constructor"+defines)
             constructor = function() {
-                this.callBase.apply(this, arguments);
-                this.callMixin.apply(this, arguments);
+                // this.callBase.apply(this, arguments);
+                // this.callMixin.apply(this, arguments);
             };
         }
 

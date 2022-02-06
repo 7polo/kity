@@ -1,12 +1,12 @@
 define(function(require, exports, module) {
     var Point = require('./point');
-
+    var Resource = require('./resource')
     var Marker = require('../core/class').createClass('Marker', {
-        base: require('./resource'),
+        base: Resource,
         mixins: [require('./shapecontainer'), require('./viewbox')],
 
         constructor: function() {
-            this.callBase('marker');
+            this.callBase2(Resource, 'constructor', ['marker']);
             this.setOrient('auto');
         },
 

@@ -24,7 +24,7 @@ define(function(require) {
          * @param  {Number} opacity 目标透明度，取值范围 0 - 1
          */
         constructor: function(opacity) {
-            this.callBase({
+            this.callBase2(Animator, 'constructor', [{
                 beginValue: function(target) {
                     return target.getOpacity();
                 },
@@ -32,7 +32,7 @@ define(function(require) {
                 setter: function(target, value) {
                     target.setOpacity(value);
                 }
-            });
+            }]);
         }
     });
 

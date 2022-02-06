@@ -23,7 +23,7 @@ define(function(require) {
          * @param  {Number} y y 方向上需要移动的距离
          */
         constructor: function(x, y) {
-            this.callBase({
+            this.callBase2(Animator, 'constructor', [{
                 x: 0,
                 y: 0
             }, {
@@ -32,7 +32,7 @@ define(function(require) {
             }, function(target, value, timeline) {
                 var delta = timeline.getDelta();
                 target.translate(delta.x, delta.y);
-            });
+            }]);
         }
     });
 

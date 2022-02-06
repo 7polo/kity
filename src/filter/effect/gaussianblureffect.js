@@ -13,7 +13,7 @@ define(function(require, exports, module) {
 
         constructor: function(stdDeviation, input) {
 
-            this.callBase(Effect.NAME_GAUSSIAN_BLUR);
+            this.callBase2(Effect, 'constructor', [Effect.NAME_GAUSSIAN_BLUR]);
 
             this.set('stdDeviation', Utils.getValue(stdDeviation, 1));
 

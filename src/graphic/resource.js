@@ -7,12 +7,14 @@
  * @copyright: Baidu FEX, 2014
  */
 
-
 define(function(require, exports, module) {
     var svg = require('./svg');
-    return require('../core/class').createClass('Resource', {
+    var Class = require('../core/class')
+
+    return Class.createClass('Resource', {
         constructor: function(nodeType, paper) {
-            this.callBase();
+            this.callBase2(Class, "constructor", []);
+
             this.node = svg.createNode(nodeType);
             if (paper) {
                 paper.addResource(this);

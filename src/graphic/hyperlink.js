@@ -1,11 +1,12 @@
 define(function(require, exports, module) {
     var ShapeContainer = require('./shapecontainer');
+    var Shape = require('./shape')
     return require('../core/class').createClass('HyperLink', {
         mixins: [ShapeContainer],
-        base: require('./shape'),
+        base: Shape,
 
         constructor: function(url) {
-            this.callBase('a');
+            this.callBase2(Shape, 'constructor', ['a']);
             this.setHref(url);
         },
 

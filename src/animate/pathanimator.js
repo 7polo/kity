@@ -36,7 +36,7 @@ define(function(require) {
          *
          */
         constructor: function(path) {
-            this.callBase({
+            this.callBase2(Animator, 'constructor', [{
                 beginValue: function(target) {
                     this.beginPath = target.getPathData();
                     return 0;
@@ -45,7 +45,7 @@ define(function(require) {
                 setter: function(target, value) {
                     target.setPathData(g.pathTween(this.beginPath, path, value));
                 }
-            });
+            }]);
         }
     });
 

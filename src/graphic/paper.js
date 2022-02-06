@@ -14,7 +14,7 @@ define(function(require, exports, module) {
         mixins: [ShapeContainer, EventHandler, Styled, ViewBox],
 
         constructor: function(container) {
-            this.callBase();
+            this.callBase2(Class, 'constructor', []);
 
             this.node = this.createSVGNode();
             this.node.paper = this;
@@ -28,7 +28,7 @@ define(function(require, exports, module) {
             if (container) {
                 this.renderTo(container);
             }
-            this.callMixin();
+            this.callMixin2(Paper, 'constructor', []);
         },
 
         renderTo: function(container) {

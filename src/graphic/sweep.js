@@ -1,12 +1,12 @@
 define(function(require, exports, module) {
     var Point = require('./point');
-
+    var Path = require('./path')
     return require('../core/class').createClass('Sweep', {
 
-        base: require('./path'),
+        base: Path,
 
         constructor: function(sectionArray, angle, angleOffset) {
-            this.callBase();
+            this.callBase2(Path, 'constructor', []);
             this.sectionArray = sectionArray || [];
             this.angle = angle || 0;
             this.angleOffset = angleOffset || 0;

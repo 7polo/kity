@@ -9,7 +9,7 @@ define(function(require, exports, module) {
         mixins: [ShapeContainer],
 
         constructor: function(paper) {
-            this.callBase('pattern', paper);
+            this.callBase2(Resource, 'constructor', ['pattern', paper]);
             this.node.setAttribute('patternUnits', 'userSpaceOnUse');
         },
         setX: function(x) {

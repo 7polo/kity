@@ -12,8 +12,7 @@ define(function(require, exports, module) {
         base: Effect,
 
         constructor: function(operator, input, input2) {
-
-            this.callBase(Effect.NAME_COMPOSITE);
+            this.callBase2(Effect, 'constructor', [Effect.NAME_COMPOSITE]);
 
             this.set('operator', Utils.getValue(operator, CompositeEffect.OPERATOR_OVER));
 

@@ -43,7 +43,7 @@ define(function(require, exports, module) {
         mixins: [ShapeContainer],
 
         constructor: function(content) {
-            this.callBase('text');
+            this.callBase2(TextContent, 'constructor', ['text']);
             if (content !== undefined) {
                 this.setContent(content);
             }
@@ -107,7 +107,7 @@ define(function(require, exports, module) {
         },
 
         setFont: function(font) {
-            this.callBase(font);
+            this.callBase2(TextContent, 'setFont', [font]);
             if (this._fontChanged(font)) {
                 this._buildFontHash();
                 this.setVerticalAlign(this.getVerticalAlign());

@@ -1,8 +1,9 @@
 define(function(require, exports, module) {
+    var Sweep = require('./sweep')
     return require('../core/class').createClass({
-        base: require('./sweep'),
+        base: Sweep,
         constructor: function(radius, angle, angleOffset) {
-            this.callBase([0, radius], angle, angleOffset);
+            this.callBase2(Sweep, 'constructor', [[0, radius], angle, angleOffset]);
         },
         getRadius: function() {
             return this.getSectionArray()[1];

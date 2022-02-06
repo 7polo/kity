@@ -1,12 +1,13 @@
 define(function(require, exports, module) {
 
+    var Poly = require('./poly')
     return require('../core/class').createClass('Polygon', {
 
-        base: require('./poly'),
+        base: Poly,
 
         constructor: function(points) {
 
-            this.callBase(points, true);
+            this.callBase2(Poly, 'constructor', [points, true]);
 
         }
 

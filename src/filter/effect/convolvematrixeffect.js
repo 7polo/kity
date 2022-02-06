@@ -13,7 +13,7 @@ define(function(require, exports, module) {
 
         constructor: function(edgeMode, input) {
 
-            this.callBase(Effect.NAME_CONVOLVE_MATRIX);
+            this.callBase2(Effect, 'constructor', [Effect.NAME_CONVOLVE_MATRIX]);
 
             this.set('edgeMode', Utils.getValue(edgeMode, ConvolveMatrixEffect.MODE_DUPLICATE));
 

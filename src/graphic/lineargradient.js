@@ -7,7 +7,7 @@ define(function(require, exports, module) {
         base: Gradient,
 
         constructor: function(paper) {
-            this.callBase('linearGradient', paper);
+            this.callBase2(Gradient, 'constructor', ['linearGradient', paper]);
             this.setStartPosition(0, 0);
             this.setEndPosition(1, 0);
         },

@@ -14,7 +14,7 @@ define(function(require, exports, module) {
 
         constructor: function() {
 
-            this.callBase('mask');
+            this.callBase2(Shape, 'constructor', ['mask']);
 
         },
 

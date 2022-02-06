@@ -52,7 +52,7 @@ define(function(require) {
          *
          */
         constructor: function(animator, target, duration, easing) {
-            this.callMixin();
+            this.callMixin2(Timeline, 'constructor', []);
 
             this.target = target;
 

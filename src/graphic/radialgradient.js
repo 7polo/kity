@@ -6,7 +6,7 @@ define(function(require, exports, module) {
         base: Gradient,
 
         constructor: function(paper) {
-            this.callBase('radialGradient', paper);
+            this.callBase2(Gradient, 'constructor', ['radialGradient', paper]);
             this.setCenter(0.5, 0.5);
             this.setFocal(0.5, 0.5);
             this.setRadius(0.5);

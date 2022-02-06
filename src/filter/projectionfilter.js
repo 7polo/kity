@@ -11,14 +11,14 @@ define(function(require, exports, module) {
         Utils = require('../core/utils'),
         CompositeEffect = require('./effect/compositeeffect'),
         OffsetEffect = require('./effect/offseteffect');
-
+    var Filter = require('./filter')
     return require('../core/class').createClass('ProjectionFilter', {
 
-        base: require('./filter'),
+        base: Filter,
 
         constructor: function(stdDeviation, dx, dy) {
 
-            this.callBase();
+            this.callBase2(Filter, 'constructor', []);
 
             this.gaussianblurEffect = new GaussianblurEffect(stdDeviation, Effect.INPUT_SOURCE_ALPHA);
             this.gaussianblurEffect.set('result', 'gaussianblur');

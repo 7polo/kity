@@ -6,14 +6,14 @@ define(function(require, exports, module) {
 
     var Svg = require('./svg');
     var Class = require('../core/class');
-
+    var Shape = require('./shape')
     var Use = Class.createClass('Use', {
 
-        base: require('./shape'),
+        base: Shape,
 
         constructor: function(shape) {
 
-            this.callBase('use');
+            this.callBase2(Shape, 'constructor', ['use']);
 
             this.ref(shape);
         },

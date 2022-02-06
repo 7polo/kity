@@ -20,7 +20,7 @@ define(function(require, exports, module) {
                 scale: null,
                 matrix: null
             };
-            this.callMixin();
+            this.callMixin2(Shape, 'constructor', []);
         },
         getId: function() {
             return this.node.id;

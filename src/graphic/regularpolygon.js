@@ -1,11 +1,11 @@
 define(function(require, exports, module) {
 
     var Point = require('./point');
-
+    var Path = require('./path')
     return require('../core/class').createClass('RegularPolygon', {
-        base: require('./path'),
+        base: Path,
         constructor: function(side, radius, x, y) {
-            this.callBase();
+            this.callBase2(Path, 'constructor', []);
             this.radius = radius || 0;
             this.side = Math.max(side || 3, 3);
             if (arguments.length > 2) {

@@ -4,7 +4,7 @@ define(function(require, exports, module) {
     var Vector = require('../core/class').createClass('Vector', {
         base: Point,
         constructor: function(x, y) {
-            this.callBase(x, y);
+            this.callBase2(Point, 'constructor', [x, y]);
         },
         square: function() {
             return this.x * this.x + this.y * this.y;

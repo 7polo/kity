@@ -8,7 +8,7 @@ define(function(require, exports, module) {
         base: Resource,
 
         constructor: function(gradientNodeType, paper) {
-            this.callBase(gradientNodeType, paper);
+            this.callBase2(Resource, 'constructor', [gradientNodeType, paper]);
             this.stops = [];
         },
 

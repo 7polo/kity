@@ -1,8 +1,8 @@
 {
-    "name": "kity",
+    "name": "@7polo/kity",
     "title": "kity",
     "description": "Kity Graphic Library",
-    "version": "2.0.5",
+    "version": "2.0.7",
     "homepage": "https://github.com/fex-team/kity",
     "author": {
         "name": "Baidu FEX",

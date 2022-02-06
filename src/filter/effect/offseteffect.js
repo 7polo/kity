@@ -13,7 +13,7 @@ define(function(require, exports, module) {
 
         constructor: function(dx, dy, input) {
 
-            this.callBase(Effect.NAME_OFFSET);
+            this.callBase2(Effect, 'constructor', [Effect.NAME_OFFSET]);
 
             this.set('dx', Utils.getValue(dx, 0));
             this.set('dy', Utils.getValue(dy, 0));

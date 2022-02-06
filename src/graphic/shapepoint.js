@@ -3,14 +3,14 @@
  */
 
 define(function(require, exports, module) {
-
+    var Point = require('./point')
     return require('../core/class').createClass('ShapePoint', {
 
-        base: require('./point'),
+        base: Point,
 
         constructor: function(px, py) {
 
-            this.callBase(px, py);
+            this.callBase2(Point, 'constructor', [px, py]);
 
         },
 

@@ -39,7 +39,7 @@ define(function(require, exports, module) {
          */
         constructor: function(paper) {
 
-            this.callBase('clipPath', paper);
+            this.callBase2(Shape, 'constructor', ['clipPath', paper]);
 
         },
 

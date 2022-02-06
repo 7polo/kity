@@ -24,7 +24,7 @@ define(function(require) {
          * @param  {Number} sy y 轴的缩放比例
          */
         constructor: function(sx, sy) {
-            this.callBase({
+            this.callBase2(Animator, 'constructor', [{
                 beginValue: 0,
                 finishValue: 1,
                 setter: function(target, value, timeline) {
@@ -33,7 +33,7 @@ define(function(require) {
                     var ky = Math.pow(sy, delta);
                     target.scale(ky, kx);
                 }
-            });
+            }]);
         }
     });
 

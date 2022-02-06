@@ -159,16 +159,16 @@ define(function(require, exports, module) {
             }
 
         };
-
+    var Path = require('./path')
     return require('../core/class').createClass('Curve', {
 
-        base: require('./path'),
+        base: Path,
 
         mixins: [require('./pointcontainer')],
 
         constructor: function(points, isColse) {
 
-            this.callBase();
+            this.callBase2(Path,'constructor', []);
 
             this.setPoints(points || []);
 
