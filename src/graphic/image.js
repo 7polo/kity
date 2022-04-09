@@ -6,7 +6,7 @@ define(function(require, exports, module) {
 
         constructor: function(url, width, height, x, y) {
 
-            this.callBase2(Shape, '', ['image']);
+            this.callBase2(Shape, "constructor", ['image']);
             this.url = url;
             this.width = width || 0;
             this.height = height || 0;

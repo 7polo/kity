@@ -5540,7 +5540,7 @@ _p[38] = {
         return _p.r(11).createClass("Image", {
             base: Shape,
             constructor: function(url, width, height, x, y) {
-                this.callBase2(Shape, "", [ "image" ]);
+                this.callBase2(Shape, "constructor", [ "image" ]);
                 this.url = url;
                 this.width = width || 0;
                 this.height = height || 0;
